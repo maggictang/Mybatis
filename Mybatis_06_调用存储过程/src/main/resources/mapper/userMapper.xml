@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="domain.userMapper">
+<select id="getUserCount" parameterMap="getUserCountMap" statementType="CALLABLE">
+        CALL mybatis.get_user_count(?,?)
+    </select>
+<parameterMap id="getUserCountMap" type="java.util.Map">
+    <parameter property="sex_id" mode="IN" jdbcType="INTEGER"/>
+    <parameter property="user_count" mode="OUT" jdbcType="INTEGER"/>
+</parameterMap>
+</mapper>
